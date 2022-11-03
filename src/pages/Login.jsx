@@ -6,7 +6,7 @@ const Login = () => {
     <div className= 'formContainer'>
         <div className= 'formWrapper'>
         <img className='logo' src={Logo} alt="Logo" />
-            <span className='title'>Kayıt Ol</span>
+            <span className='title'>Giriş Yap</span>
             <form>
                 <input type="email" placeholder='email'/>
                 <input type="password" placeholder='password'/>
