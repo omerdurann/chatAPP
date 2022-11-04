@@ -1,20 +1,59 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  setDoc,
+  doc,
+  updateDoc,
+  serverTimestamp,
+  getDoc,
+} from "firebase/firestore";
+import { db } from "../firebase";
+import { AuthContext } from "../context/AuthContext";
 
 const Search = () => {
+  const [username, setUsername] = useState("");
+  const [user, setUser] = useState(null);
+  const [err, setErr] = useState(false);
+
+  const { currentUser } = useContext(AuthContext);
+
+  const handleSearch = async () => {
+    const q = query(
+      collection(db, "users"),
+      where("displayName", "==", username)
+    );
+    try {
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        setUser(doc.data());
+      });
+    } catch (err) {
+      setErr(true);
+    }
+  };
+
+    const handleKey = (e) => {
+      e.code === "Enter" && handleSearch();
+    };
   return (
     <div className='search'>
       <div className="searchForm">
-        <input type="text" placeholder='Kullanıcı Ara'/>
+        <input type="text" placeholder='Kullanıcı Ara' onKeyDown={handleKey} onChange={(e)=>setUsername(e.target.value)}/>
       </div>
-      <div className="userChat">
-        <img src="https://i.pinimg.com/474x/e8/7b/2c/e87b2c4e603f6af5060c5badebfedd92.jpg" alt="" />
+      {err && <span>Kullanıcı Bulunamadı!!!</span>}
+      {user && (
+        <div className="userChat" >
+        <img src={user.photoURL} alt="" />
         <div className="userChatInfo">
-          <span>Sinan Hocam</span>
-          <p>Nasılsın!!</p>
+          <span>{user.displayName}</span>
         </div>
       </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default Search

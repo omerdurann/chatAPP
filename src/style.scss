@@ -3,11 +3,13 @@
     @content;
   }
 }
+
 @mixin tablet {
   @media screen and (max-width: 768px) {
     @content;
   }
 }
+
 @mixin laptop {
   @media screen and (max-width: 1200px) {
     @content;
@@ -31,6 +33,7 @@
     flex-direction: column;
     gap: 10px;
     align-items: center;
+
     .logo {
       width: 800px;
       height: 300px;
@@ -40,6 +43,7 @@
       color: white;
       font-size: 12px;
     }
+
     form {
       display: flex;
       flex-direction: column;
@@ -53,10 +57,12 @@
         outline: none;
         width: 250px;
         border-bottom: 1px solid white;
+
         &::placeholder {
           color: rgb(255, 254, 254);
         }
       }
+
       button {
         background-color: white;
         color: #9146ff;
@@ -66,6 +72,7 @@
         border-radius: 100px;
         cursor: pointer;
       }
+
       label {
         display: flex;
         align-items: center;
@@ -79,6 +86,7 @@
         }
       }
     }
+
     p {
       color: white;
       font-size: 15px;
@@ -101,6 +109,7 @@
     height: 80%;
     display: flex;
     overflow: hidden;
+
     @include tablet {
       width: 90%;
     }
@@ -112,22 +121,23 @@
       .navbar {
         display: flex;
         align-items: center;
-        background: #FF512F;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #F09819, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #F09819, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                justify-content: space-between;
+        background-color: #9146ff;
+        //background: #FF512F;  /* fallback for old browsers */
+        //background: -webkit-linear-gradient(to right, #F09819, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
+        //background: linear-gradient(to right, #F09819, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        justify-content: space-between;
         padding: 30px 20px;
         color: #fff;
-    border-radius: 0px 0px 50px 50px;
-
 
         .logo {
           width: 200px;
           height: 80px;
+
           @include tablet {
             display: none;
           }
         }
+
         .user {
           display: flex;
           gap: 10px;
@@ -147,10 +157,7 @@
             border: none;
             border-radius: 100px;
             cursor: pointer;
-            &:hover{
-              background-color: #9146ff;
-              color: #fff;
-            }
+
             @include tablet {
               position: absolute;
               bottom: 10px;
@@ -158,17 +165,20 @@
           }
         }
       }
+
       .search {
         border-bottom: 1px solid gray;
 
         .searchForm {
           padding: 15px;
+
           input {
             background-color: transparent;
             border: none;
             color: #2b1941;
             outline: none;
             font-size: 15px;
+
             &::placeholder {
               color: #9146ff;
             }
@@ -201,6 +211,7 @@
             font-size: 18px;
             font-weight: 500;
           }
+
           p {
             font-size: 14px;
             color: #4e2983;
@@ -208,23 +219,14 @@
         }
       }
     }
+
     .chat {
       flex: 3;
       background-color: #d6bcef;
 
       .chatInfo {
         height: 50px;
-        background: #ad5389; /* fallback for old browsers */
-        background: -webkit-linear-gradient(
-          to left,
-          #3c1053,
-          #ad5389
-        ); /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(
-          to left,
-          #3c1053,
-          #ad5389
-        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background-color: #4e2983;
 
         display: flex;
         align-items: center;
@@ -237,8 +239,6 @@
         display: flex;
         gap: 10px;
         margin-right: 50px;
-
-
         img {
           height: 24px;
           cursor: pointer;
@@ -269,6 +269,7 @@
               object-fit: cover;
             }
           }
+
           .messageContent {
             max-width: 80%;
             display: flex;
