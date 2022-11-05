@@ -6,6 +6,7 @@ import Logo from "../img/deneme2.png";
 
 const Navbar = () => {
   const {currentUser} = useContext(AuthContext)
+  
   return (
     <div className="navbar">
       <img className="logo" src={Logo} alt="Logo" />

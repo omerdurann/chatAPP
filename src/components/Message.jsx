@@ -26,14 +26,14 @@ const Message = ({ message }) => {
           }
           alt=""
         />
-        <span>just now</span>
+        <span>Şimdi</span>
       </div>
       <div className="messageContent">
         <p>{message.text}</p>
         {message.img && <img src={message.img} alt="" />}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Message;
+export default Message

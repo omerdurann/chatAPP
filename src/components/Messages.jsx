@@ -26,7 +26,7 @@ const Messages = () => {
         <Message message={m} key={m.id} />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Messages
+export default Messages;

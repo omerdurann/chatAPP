@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth, db , storage } from "../firebase";
-import Add from "../img/ico2.png";
 import Logo from "../img/deneme2.png";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth, db, storage } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
+import Add from "../img/ico2.png";
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -13,6 +13,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     const displayName = e.target[0].value;
     const email = e.target[1].value;
@@ -20,41 +21,42 @@ const Register = () => {
     const file = e.target[3].files[0];
 
     try {
+      //Create user
       const res = await createUserWithEmailAndPassword(auth, email, password);
 
-      const storageRef = ref(storage, displayName);
+      //Create a unique image name
+      const date = new Date().getTime();
+      const storageRef = ref(storage, `${displayName + date}`);
 
-      const uploadTask = uploadBytesResumable(storageRef, file);
-
-      // Register three observers:
-      uploadTask.on(
-        (error) => {
-          setErr(true);
-        },
-        () => {
-          // Handle successful uploads on complete
-          // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            await updateProfile(res.user,{
+      await uploadBytesResumable(storageRef, file).then(() => {
+        getDownloadURL(storageRef).then(async (downloadURL) => {
+          try {
+            //Update profile
+            await updateProfile(res.user, {
               displayName,
-              photoURL:downloadURL,
+              photoURL: downloadURL,
             });
-            await setDoc(doc(db, "users", res.user.uid),{
+            //create user on firestore
+            await setDoc(doc(db, "users", res.user.uid), {
               uid: res.user.uid,
               displayName,
               email,
               photoURL: downloadURL,
             });
+
+            //create empty user chats on firestore
             await setDoc(doc(db, "userChats", res.user.uid), {});
             navigate("/");
-          
-          
-       
-          });
-        }
-      );
-    } catch (err){
+          } catch (err) {
+            console.log(err);
+            setErr(true);
+            setLoading(false);
+          }
+        });
+      });
+    } catch (err) {
       setErr(true);
+      setLoading(false);
     }
   };
 
@@ -64,7 +66,7 @@ const Register = () => {
         <img className="logo" src={Logo} alt="Logo" />
         <span className="title">Kayıt Ol</span>
         <form onSubmit={handleSubmit}>
-          <input type="text" placeholder="display name" />
+          <input type="text" placeholder="Kullanıcı Adı" />
           <input type="email" placeholder="email" />
           <input type="password" placeholder="password" />
           <input style={{ display: "none" }} type="file" id="file" />
@@ -72,10 +74,13 @@ const Register = () => {
             <img src={Add} alt="" />
             <span>Profil resmi ekleyin</span>
           </label>
-          <button>Üye Ol</button>
+          <button disabled={loading}>Kayıt Ol</button>
+          {loading && "Uploading and compressing the image please wait..."}
           {err && <span>Bir şeyler yanlış gitti..</span>}
         </form>
-        <p>Bir hesabınız var mı? <Link to="/login">Giriş Yap</Link></p>
+        <p>
+          Bir hesabınız var mı? <Link to="/login">Giriş Yap</Link>
+        </p>
       </div>
     </div>
   );
