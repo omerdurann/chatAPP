@@ -248,7 +248,7 @@
         background-color: #d6bcef;
         padding: 10px;
         height: calc(100% - 160px);
-        overflow: scroll;
+        overflow: auto;
 
         .message {
           display: flex;
