@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
+import { useTranslation } from "react-i18next";
 
 const Search = () => {
   const [username, setUsername] = useState("");
@@ -19,6 +20,8 @@ const Search = () => {
   const [err, setErr] = useState(false);
 
   const { currentUser } = useContext(AuthContext);
+  const { t } = useTranslation();
+
 
   const handleSearch = async () => {
     const q = query(
@@ -90,7 +93,7 @@ const Search = () => {
           value={username}
         />
       </div>
-      {err && <span>Kullanıcı Bulunamadı!!!</span>}
+      {err && <span>{t("search_err")}</span>}
       {user && (
         <div className="userChat" onClick={handleSelect}>
           <img src={user.photoURL} alt="" />

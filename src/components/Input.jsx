@@ -13,6 +13,7 @@ import {
 import { db, storage } from "../firebase";
 import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { useTranslation } from "react-i18next";
 
 const Input = () => {
   const [text, setText] = useState("");
@@ -20,6 +21,8 @@ const Input = () => {
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
+  const { t } = useTranslation();
+  
 
   const handleSend = async () => {
     if (img) {
@@ -77,7 +80,7 @@ const Input = () => {
     <div className="input">
       <input
         type="text"
-        placeholder="Naber??? :)))))"
+        placeholder="Naber? :DD"
         onChange={(e) => setText(e.target.value)}
         value={text}
       />
@@ -92,10 +95,10 @@ const Input = () => {
         <label htmlFor="file">
           <img src={Img} alt="" />
         </label>
-        <button onClick={handleSend}>Gönder</button>
+        <button onClick={handleSend}>{t("send")}</button>
       </div>
     </div>
   );
 };
 
-export default Input
+export default Input;

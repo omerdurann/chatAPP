@@ -1,0 +1,62 @@
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+
+// the translations
+// (tip move them in a JSON file and import them,
+// or even better, manage them separated from your code: https://react.i18next.com/guides/multiple-translation-files)
+const resources = {
+  en: {
+    translation: {
+        "change_theme": "Change Theme",
+        "change_language": "Change Language",
+        "change_font": "Change Font",
+        "send": "Send",
+        "placeholder_input": "What's up?",
+        "logout": "Logout",
+        "search_err": "User not found!!!",
+        "placeholder_search": "User Search",
+        "login": "Login",
+        "err": "Something went wrong..!!!",
+        "not_account": "Do not you have an account yet?",
+        "register": "Register",
+        "user_name": "User Name",
+        "add_img": "Add profile picture",
+        "have_account": "Do you have an account?"
+
+    }
+  },
+  tr: {
+    translation: {
+        "change_theme": "Tema Degistir",
+        "change_language": "Dil Değiştir",
+        "change_font": "Font Değiştir",
+        "send": "Gönder",
+        "placeholder_input": "Naber? :D",
+        "logout": "Çıkış",
+        "search_err": "Kullanıcı Bulunamadı!!!",
+        "placeholder_search": "Kullanıcı Ara",
+        "login": "Giriş Yap",
+        "err": "Birşeyler yanlış gitti..!!!",
+        "not_account": "Henüz bir hesabınız yok mu?",
+        "register": "Üye ol",
+        "user_name": "Kullanıcı Adı",
+        "add_img": "Profil fotoğrafı ekleyin",
+        "have_account": "Bir hesabınız var mı?"
+    }
+  }
+};
+
+i18n
+  .use(initReactI18next) // passes i18n down to react-i18next
+  .init({
+    resources,
+    lng: "tr", // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
+    // you can use the i18n.changeLanguage function to change the language manually: https://www.i18next.com/overview/api#changelanguage
+    // if you're using a language detector, do not define the lng option
+
+    interpolation: {
+      escapeValue: false // react already safes from xss
+    }
+  });
+
+  export default i18n;

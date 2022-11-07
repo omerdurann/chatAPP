@@ -1,0 +1,18 @@
+{
+    "change_theme": "Change Theme",
+    "change_language": "Change Language",
+    "change_font": "Change Font",
+    "send": "Send",
+    "placeholder_input": "What's up?",
+    "logout": "Logout",
+    "search_err": "User not found!!!",
+    "placeholder_search": "User Search",
+    "login": "Login",
+    "err": "Something went wrong..!!!",
+    "not_account": "Do not you have an account yet?",
+    "register": "Register",
+    "user_name": "User Name",
+    "add_img": "Add profile picture",
+    "have_account": "Do you have an account?"
+
+}

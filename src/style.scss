@@ -234,14 +234,17 @@
         color: #d6bcef;
       }
 
-      .chatIcons {
-        display: flex;
+      button {
         gap: 10px;
         margin-right: 50px;
-        img {
-          height: 24px;
-          cursor: pointer;
-        }
+        background-color: #fff;
+        color: #9146ff;
+        font-size: 15px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        
       }
 
       .messages {

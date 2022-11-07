@@ -1,0 +1,17 @@
+{
+    "change_theme": "Tema Degistir",
+    "change_language": "Dil Değiştir",
+    "change_font": "Font Değiştir",
+    "send": "Gönder",
+    "placeholder_input": "Naber? :D",
+    "logout": "Çıkış",
+    "search_err": "Kullanıcı Bulunamadı!!!",
+    "placeholder_search": "Kullanıcı Ara",
+    "login": "Giriş Yap",
+    "err": "Birşeyler yanlış gitti..!!!",
+    "not_account": "Henüz bir hesabınız yok mu?",
+    "register": "Üye ol",
+    "user_name": "Kullanıcı Adı",
+    "add_img": "Profil fotoğrafı ekleyin",
+    "have_account": "Bir hesabınız var mı?"
+}

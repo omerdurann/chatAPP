@@ -6,11 +6,14 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
 import Add from "../img/ico2.png";
+import { useTranslation } from "react-i18next";
 
 const Register = () => {
   const [err, setErr] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
 
   const handleSubmit = async (e) => {
     setLoading(true);
@@ -64,7 +67,7 @@ const Register = () => {
     <div className="formContainer">
       <div className="formWrapper">
         <img className="logo" src={Logo} alt="Logo" />
-        <span className="title">Kayıt Ol</span>
+        <span className="title">{t("register")}</span>
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder="Kullanıcı Adı" />
           <input type="email" placeholder="email" />
@@ -72,14 +75,14 @@ const Register = () => {
           <input style={{ display: "none" }} type="file" id="file" />
           <label htmlFor="file">
             <img src={Add} alt="" />
-            <span>Profil resmi ekleyin</span>
+            <span>{t("add_img")}</span>
           </label>
-          <button disabled={loading}>Kayıt Ol</button>
+          <button disabled={loading}>{t("register")}</button>
           {loading && "Uploading and compressing the image please wait..."}
-          {err && <span>Bir şeyler yanlış gitti..</span>}
+          {err && <span>{t("err")}</span>}
         </form>
         <p>
-          Bir hesabınız var mı? <Link to="/login">Giriş Yap</Link>
+          {t("have_account")} <Link to="/login">{t("login")}</Link>
         </p>
       </div>
     </div>
