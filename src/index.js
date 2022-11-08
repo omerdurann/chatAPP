@@ -10,9 +10,9 @@ root.render(
   <AuthContextProvider>
     <ChatContextProvider>
       <React.StrictMode>
-        <Suspense fallback={<div>Loading...</div>}>
-          <App />
-        </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
+            <App />
+          </Suspense>
       </React.StrictMode>
     </ChatContextProvider>
   </AuthContextProvider>

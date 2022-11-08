@@ -76,11 +76,12 @@ const Input = () => {
     setText("");
     setImg(null);
   };
+
   return (
     <div className="input">
       <input
         type="text"
-        placeholder="Naber? :DD"
+        placeholder={t("placeholder_input")}
         onChange={(e) => setText(e.target.value)}
         value={text}
       />

@@ -1,6 +1,6 @@
 1-online sayısı
 2-mesajı düzenle
-3-tema/dil
+3-tema/dil   dil +
 4-mesaj gönderilme tarihi saati
 5-404 sayfası
 6-yazı fontu ekle ve saçme seçeneği getir
