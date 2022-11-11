@@ -12,17 +12,24 @@ const Chat = () => {
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
   };
-  
 
   return (
     <div className="chat">
       <div className="chatInfo">
-        <span>{data.user?.displayName}</span>
+        <div className="userInfo">
+          <img src={data.user.photoURL} alt="" />
+          <span>{data.user?.displayName}</span>
+        </div>
         <div className="button">
-          <button onClick={() => changeLanguage("en") || changeLanguage("tr")}>
+          <button
+            onClick={() =>
+              i18n.language === "en"
+                ? changeLanguage("tr")
+                : changeLanguage("en")
+            }
+          >
             {t("change_language")}
           </button>
-          <button>{t("change_font")}</button>
           <button>{t("change_theme")}</button>
         </div>
       </div>

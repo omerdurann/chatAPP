@@ -69,7 +69,7 @@ const Register = () => {
         <img className="logo" src={Logo} alt="Logo" />
         <span className="title">{t("register")}</span>
         <form onSubmit={handleSubmit}>
-          <input type="text" placeholder="Kullanıcı Adı" />
+          <input type="text" placeholder={t("user_name")} />
           <input type="email" placeholder="email" />
           <input type="password" placeholder="password" />
           <input style={{ display: "none" }} type="file" id="file" />
