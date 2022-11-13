@@ -30,7 +30,9 @@ const Message = ({ message }) => {
       </div>
       <div className="messageContent">
         <p>{message.text}</p>
+        <div>
         {message.img && <img src={message.img} alt="" />}
+        </div>
       </div>
     </div>
   );
