@@ -1,14 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../context/AuthContext';
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
-import UserList from "./UserList"
-
-
+import UserList from "./UserList";
 
 const Users = () => {
-    const [users, setUsers] = useState([]);
-    const { currentUser } = useContext(AuthContext);
+  const [users, setUsers] = useState([]);
+  const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
     const getUsers = () => {
@@ -24,26 +22,21 @@ const Users = () => {
     currentUser.uid && getUsers();
   }, [currentUser.uid]);
 
- 
-
   return (
     <div className="usersList">
-        <UserList/>
+      <UserList />
       {Object.entries(users)
-        
-        .map(() => (
-          <div className="userList">
-            <img src={users.photoURL} alt="" />
-            <div className="userListInfo">
-                <span>{users.displayName}</span>
-              <p>{users.email}</p>
-            </div>
-            
+      .map(() => (
+        <div className="userList">
+          <img src={users.photoURL} alt="" />
+          <div className="userListInfo">
+            <span>{users.displayName}</span>
+            <p>{users.email}</p>
           </div>
-        ))}
         </div>
-        )
+      ))}
+    </div>
+  );
+};
 
-}
-
-export default Users
+export default Users;

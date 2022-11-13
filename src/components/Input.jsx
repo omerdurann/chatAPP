@@ -21,7 +21,6 @@ const Input = () => {
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
   const { t } = useTranslation();
-  
 
   const handleSend = async () => {
     if (img) {

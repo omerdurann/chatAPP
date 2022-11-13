@@ -10,7 +10,6 @@ const Login = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const email = e.target[0].value;
@@ -34,7 +33,6 @@ const Login = () => {
 
           <button>{t("login")}</button>
           {err && <span>{t("err")}</span>}
-          
         </form>
         <p>
           {t("not_account")} <Link to="/register">{t("register")}</Link>

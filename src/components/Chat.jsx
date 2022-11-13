@@ -12,8 +12,6 @@ const Chat = () => {
 
   const { t, i18n } = useTranslation();
 
-  
-
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
   };
@@ -21,9 +19,7 @@ const Chat = () => {
   // const handleClick = async (user) => {
   //   const chatId = doc(db, "chats", user);
   //    await deleteDoc(chatId);
-  //  };   
-
-  
+  //  };
 
   return (
     <div className="chat">
@@ -32,8 +28,10 @@ const Chat = () => {
           <img src={data.user.photoURL} alt="" />
           <span>{data.user?.displayName}</span>
         </div>
+        <ThemeButton />
         <div className="button">
-          <button  className="buttonWrapper"
+          <button
+            className="buttonWrapper"
             onClick={() =>
               i18n.language === "en"
                 ? changeLanguage("tr")
@@ -52,7 +50,6 @@ const Chat = () => {
               </span>
           </button> */}
         </div>
-          <ThemeButton />
       </div>
       <Messages />
       <Input />

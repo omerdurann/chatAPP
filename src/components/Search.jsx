@@ -22,7 +22,6 @@ const Search = () => {
   const { currentUser } = useContext(AuthContext);
   const { t } = useTranslation();
 
-
   const handleSearch = async () => {
     const q = query(
       collection(db, "users"),
@@ -58,7 +57,7 @@ const Search = () => {
         await setDoc(doc(db, "chats", combinedId), { messages: [] });
 
         // kullanıcı sohbetleri oluştur
-        //kendi hesabmız için 
+        //kendi hesabmız için
         await updateDoc(doc(db, "userChats", currentUser.uid), {
           [combinedId + ".userInfo"]: {
             uid: user.uid,
@@ -80,7 +79,7 @@ const Search = () => {
     } catch (err) {}
 
     setUser(null);
-    setUsername("")
+    setUsername("");
   };
   return (
     <div className="search">
@@ -106,4 +105,4 @@ const Search = () => {
   );
 };
 
-export default Search
+export default Search;

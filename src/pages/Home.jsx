@@ -6,7 +6,7 @@ import { themeContext } from "../context/ThemeContext";
 
 const Home = () => {
   const { theme } = useContext(themeContext);
-  
+
   return (
     <div className={`home ${theme}`}>
       <div className="container">

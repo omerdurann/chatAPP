@@ -14,7 +14,6 @@ const Register = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
