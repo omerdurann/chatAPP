@@ -1,4 +1,4 @@
-<h3 align="center">Kodluyoruz React Bootcamp Final Project 💣</h3>
+<h3 align="center">💣 Kodluyoruz React Bootcamp Final Project 💣</h3>
 
 - 🚀 [👉 GIRGIR 💬](https://kodluyorugirgir.netlify.app/)
 

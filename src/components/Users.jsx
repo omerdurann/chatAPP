@@ -1,37 +1,34 @@
-import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { doc, onSnapshot } from "firebase/firestore";
+import React from "react";
 import { db } from "../firebase";
 import UserList from "./UserList";
+import { collection,  getDocs } from "firebase/firestore";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const Users = () => {
-  const [users, setUsers] = useState([]);
-  const { currentUser } = useContext(AuthContext);
+  const [users, setUsers] = useState([])
+  const getUsers  = async ()=> {
+    const querySnapshot = await getDocs(collection(db, "users"));
+    const usersdb = [];
+    querySnapshot.docs.forEach((doc) => {
+      usersdb.push({...doc.data()})
+    })
+    console.log("users",usersdb);
+    setUsers(usersdb)
+  };
 
-  useEffect(() => {
-    const getUsers = () => {
-      const unsub = onSnapshot(doc(db, "users", currentUser.uid), (doc) => {
-        setUsers(doc.data());
-      });
-
-      return () => {
-        unsub();
-      };
-    };
-
-    currentUser.uid && getUsers();
-  }, [currentUser.uid]);
+  useEffect(()=>{getUsers()},[])
 
   return (
     <div className="usersList">
       <UserList />
-      {Object.entries(users)
-      .map(() => (
+      
+      {users.map((user) => (
         <div className="userList">
-          <img src={users.photoURL} alt="" />
+          <img src={user.photoURL} alt="" />
           <div className="userListInfo">
-            <span>{users.displayName}</span>
-            <p>{users.email}</p>
+            <span>{user.displayName}</span>
+            <p>{user.email}</p>
           </div>
         </div>
       ))}
