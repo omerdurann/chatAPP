@@ -69,6 +69,8 @@
     .buttonWrapper {
       display: flex;
       gap: 5px;
+      justify-content: space-between;
+
 
       .theme {
         margin-left: 220px;
@@ -77,6 +79,8 @@
         height: 30px;
         border: 2px solid #a7bcff;
         cursor: pointer;
+        margin-left:auto;
+
 
         .fa-solid {
           color: #5a189a;
