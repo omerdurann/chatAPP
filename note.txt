@@ -2,8 +2,8 @@
 2-mesajı düzenle
 3-tema/dil   dil +
 4-mesaj gönderilme tarihi saati
-5-404 sayfası
-6-yazı fontu ekle ve saçme seçeneği getir
+5-404 sayfası +
+6-yazı fontu ekle ve saçme seçeneği getir 
 7-grup konuşması
 8-Mesajları silme
 9-kullanıcılar listesi
