@@ -16,7 +16,28 @@
   }
 }
 
+.dark {
+  background: #41295a;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2F0743, #41295a);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2F0743, #41295a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+}
+
+.light {
+  background: #d9a7c7;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fffcdc, #d9a7c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
 
 .formContainer {
   background-color: #3c2161;
@@ -35,10 +56,35 @@
     flex-direction: column;
     gap: 10px;
     align-items: center;
+    
+    .buttonWrapper {
+      display: flex;
+      gap: 5px;
+
+      .theme {
+        margin-left: 220px;
+        border-radius: 10px;
+        width: 35px;
+        height: 30px;
+        border: 2px solid #a7bcff;
+        cursor: pointer;
+
+        .fa-solid {
+          color: #5a189a;
+          font-size: 18px;
+        }
+      }
+    }
 
     .logo {
       width: 800px;
       height: 300px;
+    }
+
+    
+    .err{
+      width: 250px;
+      height: 250px;
     }
 
     .title {
@@ -138,6 +184,7 @@
           font-size: 24px;
           align-items: center;
           padding-left: 50px;
+
           
           .ico {
             background-color: transparent;
@@ -186,6 +233,7 @@
         color: #2b1941;
         cursor: pointer;
 
+
         &:hover {
           object-fit: cover;
           background-color: #d6bcef;
@@ -201,11 +249,13 @@
         .ico {
           background-color: transparent;
           color: #2b1941;
-          font-size: 18px;
+          font-size: 20px;
           border: none;
           display: flex;
+          margin-left: auto;
         }
         .userChatInfo {
+
           span {
             font-size: 18px;
             font-weight: 500;
@@ -277,7 +327,7 @@
     }
 
     .chat {
-      flex: 3;
+      flex: 10 ;
       background-color: #d6bcef;
 
       .chatInfo {

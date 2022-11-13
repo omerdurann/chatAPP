@@ -15,7 +15,9 @@ const Navbar = () => {
         <img src={currentUser.photoURL} alt="" />
         <span>{currentUser.displayName}</span>
         <button className="ico" onClick={() => signOut(auth)}>
-          <i class="fa-solid fa-right-from-bracket"></i>
+          <span class="material-symbols-outlined">
+            logout
+          </span>
         </button>
       </div>
     </div>

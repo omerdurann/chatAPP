@@ -12,6 +12,7 @@ function ThemeProvider({ children }) {
   const toggleTheme = () => {
     setTheme((prevState) => (prevState === "light" ? "dark" : "light"));
   };
+
   return (
     <themeContext.Provider value={{ theme, setTheme, toggleTheme }}>
       {children}

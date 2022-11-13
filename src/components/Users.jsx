@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../context/AuthContext';
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
-import Navbar from "./Navbar1"
+import UserList from "./UserList"
 
 
 
@@ -28,7 +28,7 @@ const Users = () => {
 
   return (
     <div className="usersList">
-        <Navbar/>
+        <UserList/>
       {Object.entries(users)
         
         .map(() => (

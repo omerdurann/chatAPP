@@ -1,4 +1,4 @@
-import { doc, onSnapshot } from "firebase/firestore";
+import {  doc, onSnapshot } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
@@ -42,8 +42,7 @@ const Chats = () => {
               <span>{chat[1].userInfo.displayName}</span>
               <p>{chat[1].lastMessage?.text}</p>
             </div>
-            <button  >
-              <i class="fa-solid fa-trash"></i>
+            <button className="ico">
             </button>
           </div>
         ))}

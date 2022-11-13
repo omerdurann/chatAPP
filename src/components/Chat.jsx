@@ -3,15 +3,27 @@ import Messages from "./Messages";
 import Input from "./Input";
 import { ChatContext } from "../context/ChatContext";
 import { useTranslation } from "react-i18next";
+import ThemeButton from "./ThemeButton";
+// import { deleteDoc, doc } from "firebase/firestore";
+// import { db } from "../firebase";
 
 const Chat = () => {
   const { data } = useContext(ChatContext);
 
   const { t, i18n } = useTranslation();
 
+  
+
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
   };
+
+  // const handleClick = async (user) => {
+  //   const chatId = doc(db, "chats", user);
+  //    await deleteDoc(chatId);
+  //  };   
+
+  
 
   return (
     <div className="chat">
@@ -21,7 +33,7 @@ const Chat = () => {
           <span>{data.user?.displayName}</span>
         </div>
         <div className="button">
-          <button
+          <button  className="buttonWrapper"
             onClick={() =>
               i18n.language === "en"
                 ? changeLanguage("tr")
@@ -30,8 +42,17 @@ const Chat = () => {
           >
             {t("change_language")}
           </button>
-          <button>{t("change_theme")}</button>
+          {/* <button className="buttonWrapper">
+              <span
+                key={data.chatId}
+                onClick={() => handleClick(data.chatId)}
+                class="material-symbols-outlined"
+              >
+                delete
+              </span>
+          </button> */}
         </div>
+          <ThemeButton />
       </div>
       <Messages />
       <Input />
