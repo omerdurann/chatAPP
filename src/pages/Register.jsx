@@ -77,7 +77,7 @@ const Register = () => {
             <span>{t("add_img")}</span>
           </label>
           <button disabled={loading}>{t("register")}</button>
-          {loading && "Uploading and compressing the image please wait..."}
+          {loading && "Resim yükleniyor Lütfen bekleyiniz..."}
           {err && <span>{t("err")}</span>}
         </form>
         <p>

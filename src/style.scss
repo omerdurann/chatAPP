@@ -279,6 +279,7 @@
     .usersList {
       flex: 1;
       background-color: #bf9be7;
+
       .userlistLogo {
         display: flex;
         align-items: center;
@@ -307,6 +308,7 @@
         gap: 10px;
         color: #2b1941;
         cursor: pointer;
+        overflow: auto;
 
         &:hover {
           object-fit: cover;

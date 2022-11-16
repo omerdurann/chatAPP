@@ -4,6 +4,8 @@ import UserList from "./UserList";
 import { collection,  getDocs } from "firebase/firestore";
 import { useState } from "react";
 import { useEffect } from "react";
+import "../img/ico2.png";
+
 
 const Users = () => {
   const [users, setUsers] = useState([])
@@ -19,13 +21,16 @@ const Users = () => {
 
   useEffect(()=>{getUsers()},[])
 
+
   return (
     <div className="usersList">
       <UserList />
       
       {users.map((user) => (
         <div className="userList">
-          <img src={user.photoURL} alt="" />
+          <img
+            src={user?.photoURL ? user?.photoURL  : "../img/ico2.png"}
+          />
           <div className="userListInfo">
             <span>{user.displayName}</span>
             <p>{user.email}</p>
