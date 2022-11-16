@@ -1,8 +1,17 @@
-<h3 align="center">💣 Kodluyoruz React Bootcamp Final Project 💣</h3>
+![kodluyoruz_yatay_slogan](https://user-images.githubusercontent.com/73335147/202192575-e69ce3ea-6dbb-400b-a063-76d6efa5b1b5.png)
+
+<h1 align="center">💣 Kodluyoruz React Bootcamp Final Project 💣</h1>
 
 - 🚀 [👉 GIRGIR 💬](https://kodluyorugirgir.netlify.app/)
 
-<h3 align="left">:</h3>
+<h3 align="center">GIRGIR-Register</h3>
+
+![2](https://user-images.githubusercontent.com/73335147/202190254-fdf7acd7-d7aa-4f11-b71a-e9ad72446978.jpg)
+
+<h3 align="center">GIRGIR-Chat</h3>
+
+![4](https://user-images.githubusercontent.com/73335147/202190635-9661eeb4-3f05-434f-94a5-45c3f7747572.jpg)
+
 <p align="left">
 </p>
 
