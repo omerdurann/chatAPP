@@ -14,6 +14,7 @@ const Navbar = () => {
         <button className="ico" onClick={() => signOut(auth)}>
           <span class="material-symbols-outlined">logout</span>
         </button>
+        
       </div>
     </div>
   );
