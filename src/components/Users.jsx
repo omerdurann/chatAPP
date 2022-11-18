@@ -29,7 +29,7 @@ const Users = () => {
       {users.map((user) => (
         <div className="userList">
           <img
-            src={user?.photoURL ? user?.photoURL  : "../img/ico2.png"}
+            src={user?.photoURL ? user?.photoURL  : "../img/ico2.png"} alt=""
           />
           <div className="userListInfo">
             <span>{user.displayName}</span>
