@@ -25,18 +25,19 @@ const Users = () => {
   return (
     <div className="usersList">
       <UserList />
-      
-      {users.map((user) => (
-        <div className="userList">
-          <img
-            src={user?.photoURL ? user?.photoURL  : "../img/ico2.png"} alt=""
-          />
-          <div className="userListInfo">
-            <span>{user.displayName}</span>
-            <p>{user.email}</p>
+      <div className="scrool">
+        {users.map((user) => (
+          <div className="userList">
+            <img
+              src={user?.photoURL ? user?.photoURL  : "../img/ico2.png"} alt=""
+            />
+            <div className="userListInfo">
+              <span>{user.displayName}</span>
+              <p>{user.email}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

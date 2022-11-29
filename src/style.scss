@@ -277,8 +277,10 @@
     }
 
     .usersList {
-      flex: 1;
+      flex: 4;
       background-color: #bf9be7;
+      overflow: auto;
+
 
       .userlistLogo {
         display: flex;
@@ -288,7 +290,7 @@
         //background: -webkit-linear-gradient(to right, #F09819, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
         //background: linear-gradient(to right, #F09819, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         justify-content: space-between;
-        padding: 30px 20px;
+        padding: 20px 50px;
         color: #fff;
 
         .logo {
@@ -308,7 +310,6 @@
         gap: 10px;
         color: #2b1941;
         cursor: pointer;
-        overflow: auto;
 
         &:hover {
           object-fit: cover;
